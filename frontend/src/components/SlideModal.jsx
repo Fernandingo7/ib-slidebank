@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { API_BASE_URL } from '../api'
 
 export default function SlideModal({ slide, onClose }) {
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function SlideModal({ slide, onClose }) {
           <div>
             {slide.thumbnail_url ? (
               <img
-                src={`http://localhost:8000${slide.thumbnail_url}`}
+                src={`${API_BASE_URL}${slide.thumbnail_url}`}
                 alt={slide.titulo}
                 style={{ width: '100%', borderRadius: 8, border: '1px solid #2d2d3d' }}
               />

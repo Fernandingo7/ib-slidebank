@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../api'
+
 export default function SlideCard({ slide, onClick }) {
   return (
     <div
@@ -23,7 +25,7 @@ export default function SlideCard({ slide, onClick }) {
       <div style={{ aspectRatio: '16/9', background: '#0f0f13', overflow: 'hidden' }}>
         {slide.thumbnail_url ? (
           <img
-            src={`http://localhost:8000${slide.thumbnail_url}`}
+            src={`${API_BASE_URL}${slide.thumbnail_url}`}
             alt={slide.titulo}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             loading="lazy"
