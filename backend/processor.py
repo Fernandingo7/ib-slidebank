@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import shutil
 import subprocess
+import time
 import uuid
 from pathlib import Path
 
@@ -111,6 +112,8 @@ def process_presentation(file_path: str, original_filename: str, presentation_id
             db.commit()
 
         for i, image_path in enumerate(slide_images, start=1):
+            if i > 1:
+                time.sleep(5)  # ~12 req/min — fica abaixo do limite do free tier
             analysis = analyze_slide(image_path, i, context=context)
 
             slide = Slide(
